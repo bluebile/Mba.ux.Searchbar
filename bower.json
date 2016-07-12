@@ -1,0 +1,33 @@
+{
+    "name": "Mba.ux.Searchbar",
+    "version": "0.0.1",
+    "homepage": "https://github.com/bluebile/Mba.ux.Searchbar",
+    "authors": [
+        "Bluebile <info@bluebile.com>"
+    ],
+    "description": "Plugin do sencha para searchbar.",
+    "main": [
+        "Searchbar.js"
+    ],
+    "keywords": [
+        "senchatouch",
+        "extjs",
+        "ux",
+        "Search",
+        "Searchbar"
+    ],
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "demo",
+        "ux",
+        "**/*.*~",
+        "gulpfile.js",
+        "bower.json",
+        "package.json",
+        "test",
+        "tests"
+    ]
+}
