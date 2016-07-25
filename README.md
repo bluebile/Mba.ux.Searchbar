@@ -1,5 +1,25 @@
 # Plugin do sencha para searchbar.
 
-## Contato
+Barra de busca personalizada
 
-<info@bluebile.com>
+## Exemplo de utilização
+
+``` javascript
+Ext.define('Aplicacao.view.Main', {
+    extend: 'Ext.Container',
+
+    requires: ['Mba.ux.Searchbar']
+
+    config: {
+        items: [
+            {
+                xtype: 'searchbar',
+                docked: 'top',
+                placeholder: 'Exemplo de placeholder'
+            },
+            ...
+        ]
+    }
+
+});
+```
