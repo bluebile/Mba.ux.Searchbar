@@ -7,6 +7,7 @@ Ext.define('Mba.ux.Searchbar', {
     config: {
         cls: 'searchbar',
         layout: 'hbox',
+        placeholder: 'Pesquise aqui...',
         items:[{
             xtype: 'button',
             hidden: true,
@@ -20,7 +21,6 @@ Ext.define('Mba.ux.Searchbar', {
             }
         }, {
             xtype: 'searchfield',
-            placeHolder: 'Pesquise aqui...',
             itemId: 'searchBarField',
             flex: 2,
             listeners: {
@@ -46,6 +46,14 @@ Ext.define('Mba.ux.Searchbar', {
                 this.parent.down('#searchBarField').blur();
             }
         }]
+    },
+
+    /**
+     * Atualizando placeholder do campo de busca da searchBar
+     * @param value
+     */
+    updatePlaceholder: function(value) {
+        this.down('#searchBarField').setPlaceHolder(value);
     }
 
 });
