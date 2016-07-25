@@ -8,17 +8,17 @@
     .x-field-clearable {
         .x-field-input {
             padding-right: 0px !important;
+            font-size: 16px;
         }
     }
     .cancel-search {
         font-size: 15px;
-        min-height: 48px;
+        min-height: 40px;
         margin: 5px;
         padding: 0;
         border: 1px solid black;
         border-radius: 3px;
         .x-button-label {
-            // padding-left: 15px !important;
         }
     }
     .cancel-search-android {
@@ -28,7 +28,6 @@
         font-size: 15px;
     }
 }
-
 .x-field-search {
     .x-component-outer {
         padding: 6px;
@@ -42,14 +41,13 @@
         .x-form-field {
             margin-left: 0px;
             padding-left: 30px;
+            font-size: 16px;
         }
         input {
             border-radius: 5px;
         }
     }
 }
-
-
 .x-android {
     .x-field-search {
         .x-field-input {
@@ -69,8 +67,10 @@
         }
     }
 }
-
 .x-field-input {
+    &:before {
+        top: .5em !important;
+    }
     .x-clear-icon {
         background: none;
         width: auto;
