@@ -21,6 +21,12 @@
             // padding-left: 15px !important;
         }
     }
+    .cancel-search-android {
+        width: 40px !important;
+        height: 40px;
+        margin-top: 10px;
+        font-size: 15px;
+    }
 }
 
 .x-field-search {
@@ -47,6 +53,7 @@
 .x-android {
     .x-field-search {
         .x-field-input {
+            padding-right: 0px !important;
             &:before {
                 content: '\f375' !important;
             }

@@ -8,6 +8,17 @@ Ext.define('Mba.ux.Searchbar', {
         cls: 'searchbar',
         layout: 'hbox',
         items:[{
+            xtype: 'button',
+            hidden: true,
+            ui: 'plain',
+            iconCls: 'ion-md-arrow-back',
+            cls: 'cancel-search-android',
+            itemId: Ext.os.is.Android ? 'cancelSearch' : 'cancelSearchAndroid',
+            handler: function() {
+                this.parent.down('#searchBarField').setValue(null);
+                this.parent.down('#searchBarField').blur();
+            }
+        }, {
             xtype: 'searchfield',
             placeHolder: 'Pesquise aqui...',
             itemId: 'searchBarField',
@@ -29,7 +40,7 @@ Ext.define('Mba.ux.Searchbar', {
             flex: 1,
             text: 'Cancelar',
             cls: 'cancel-search',
-            itemId: 'cancelSearch',
+            itemId: Ext.os.is.iOS ? 'cancelSearch' : 'cancelSearchAndroid',
             handler: function() {
                 this.parent.down('#searchBarField').setValue(null);
                 this.parent.down('#searchBarField').blur();
