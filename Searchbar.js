@@ -22,12 +22,13 @@ Ext.define('Mba.ux.Searchbar.Searchbar', {
                 this.parent.down('#searchBarField').setValue(null);
                 this.parent.down('#searchBarField').blur();
                 this.hide();
+                this.parent.down('#searchBarField').toggleCls('search-focused');
                 this.parent.down('#searchBarField').fireEvent('cancel');
             }
         }, {
             xtype: 'searchfield',
             itemId: 'searchBarField',
-            flex: 2,
+            // flex: 2,
             listeners: {
                 focus: function() {
                     this.parent.down('#cancelSearch').show();
@@ -38,7 +39,7 @@ Ext.define('Mba.ux.Searchbar.Searchbar', {
             xtype: 'button',
             hidden: true,
             ui: 'plain',
-            flex: 1,
+            // flex: 1,
             text: 'Cancelar',
             cls: 'cancel-search',
             itemId: Ext.os.is.iOS ? 'cancelSearch' : 'cancelSearchAndroid',
@@ -46,6 +47,7 @@ Ext.define('Mba.ux.Searchbar.Searchbar', {
                 this.parent.down('#searchBarField').setValue(null);
                 this.parent.down('#searchBarField').blur();
                 this.hide();
+                this.parent.down('#searchBarField').toggleCls('search-focused');
                 this.parent.down('#searchBarField').fireEvent('cancel');
             }
         }]
