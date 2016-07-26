@@ -21,6 +21,8 @@ Ext.define('Mba.ux.Searchbar.Searchbar', {
             handler: function() {
                 this.parent.down('#searchBarField').setValue(null);
                 this.parent.down('#searchBarField').blur();
+                this.hide();
+                this.parent.down('#searchBarField').fireEvent('cancel');
             }
         }, {
             xtype: 'searchfield',
@@ -29,10 +31,6 @@ Ext.define('Mba.ux.Searchbar.Searchbar', {
             listeners: {
                 focus: function() {
                     this.parent.down('#cancelSearch').show();
-                    this.toggleCls('search-focused');
-                },
-                blur: function() {
-                    this.parent.down('#cancelSearch').hide();
                     this.toggleCls('search-focused');
                 }
             }
@@ -47,6 +45,8 @@ Ext.define('Mba.ux.Searchbar.Searchbar', {
             handler: function() {
                 this.parent.down('#searchBarField').setValue(null);
                 this.parent.down('#searchBarField').blur();
+                this.hide();
+                this.parent.down('#searchBarField').fireEvent('cancel');
             }
         }]
     },
