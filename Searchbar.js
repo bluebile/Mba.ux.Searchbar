@@ -19,34 +19,38 @@ Ext.define('Mba.ux.Searchbar.Searchbar', {
             cls: 'cancel-search-android',
             itemId: Ext.os.is.Android ? 'cancelSearch' : 'cancelSearchAndroid',
             handler: function() {
-                this.parent.down('#searchBarField').setValue(null);
-                this.parent.down('#searchBarField').blur();
+                var search = this.parent.down('#searchBarField');
+                search.setValue(null);
+                search.blur();
                 this.hide();
-                this.parent.down('#searchBarField').fireEvent('cancel');
+                search.removeCls('search-focused');
+                search.fireEvent('cancel');
             }
         }, {
             xtype: 'searchfield',
             itemId: 'searchBarField',
-            flex: 2,
             listeners: {
                 focus: function() {
                     this.parent.down('#cancelSearch').show();
-                    this.toggleCls('search-focused');
+                    if (this.getCls().indexOf('search-focused') === -1) {
+                        this.addCls('search-focused');
+                    }
                 }
             }
         }, {
             xtype: 'button',
             hidden: true,
             ui: 'plain',
-            flex: 1,
             text: 'Cancelar',
             cls: 'cancel-search',
-            itemId: Ext.os.is.iOS ? 'cancelSearch' : 'cancelSearchAndroid',
+            itemId: !Ext.os.is.Android ? 'cancelSearch' : 'cancelSearchAndroid',
             handler: function() {
-                this.parent.down('#searchBarField').setValue(null);
-                this.parent.down('#searchBarField').blur();
+                var search = this.parent.down('#searchBarField');
+                search.setValue(null);
+                search.blur();
                 this.hide();
-                this.parent.down('#searchBarField').fireEvent('cancel');
+                search.removeCls('search-focused');
+                search.fireEvent('cancel');
             }
         }]
     },
