@@ -10,6 +10,17 @@ Ext.define('Mba.ux.Searchbar.Search', {
             xtype: 'searchinput',
             type: 'search'
         }
+    },
+
+    getValue: function() {
+        var value = this.callOverridden();
+        value = value.replace(/[âáã]/g, 'a');
+        value = value.replace(/[êé]/g, 'e');
+        value = value.replace(/[îí]/g, 'i');
+        value = value.replace(/[ôóõ]/g, 'o');
+        value = value.replace(/ú/g, 'u');
+        value = value.replace(/ç/g, 'c');
+        return value;
     }
 
 });
