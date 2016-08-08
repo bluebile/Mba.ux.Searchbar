@@ -50,6 +50,9 @@
 }
 .x-android {
     .x-field-search {
+        &.search-focused {
+            width: 88% !important;
+        }
         .x-field-input {
             padding-right: 0px !important;
             &:before {
