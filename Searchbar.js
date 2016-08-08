@@ -28,15 +28,15 @@ Ext.define('Mba.ux.Searchbar.Searchbar', {
             }
         }, {
             xtype: 'searchfield',
-            itemId: 'searchBarField',
-            listeners: {
-                focus: function() {
-                    this.parent.down('#cancelSearch').show();
-                    if (this.getCls().indexOf('search-focused') === -1) {
-                        this.addCls('search-focused');
-                    }
-                }
-            }
+            itemId: 'searchBarField'//,
+            // listeners: {
+            //     focus: function() {
+            //         this.parent.down('#cancelSearch').show();
+            //         if (this.getCls().indexOf('search-focused') === -1) {
+            //             this.addCls('search-focused');
+            //         }
+            //     }
+            // }
         }, {
             xtype: 'button',
             hidden: true,
@@ -52,7 +52,15 @@ Ext.define('Mba.ux.Searchbar.Searchbar', {
                 search.removeCls('search-focused');
                 search.fireEvent('cancel');
             }
-        }]
+        }],
+        listeners: {
+            painted: function() {
+                this.down('#cancelSearch').show();
+                if (this.down('#searchBarField').getCls().indexOf('search-focused') === -1) {
+                    this.down('#searchBarField').addCls('search-focused');
+                }
+            }
+        }
     },
 
     /**
