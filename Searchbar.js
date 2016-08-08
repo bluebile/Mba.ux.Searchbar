@@ -7,55 +7,40 @@ Ext.define('Mba.ux.Searchbar.Searchbar', {
         'Ext.field.Search'
     ],
 
+    constructor: function() {
+        this.callParent(arguments);
+        var buttonCancel = {
+            xtype: 'button',
+            ui: 'plain',
+            iconCls: !Ext.os.is.Android ? '' :  'ion-md-arrow-back',
+            text: !Ext.os.is.Android ? 'Cancelar' : '',
+            cls: !Ext.os.is.Android ? 'cancel-search' : 'cancel-search-android',
+            itemId: 'cancelSearch',
+            handler: function() {
+                var search = this.parent.down('#searchBarField');
+                search.setValue(null);
+                search.blur();
+                search.removeCls('search-focused');
+                search.fireEvent('cancel');
+            }
+        };
+        if (Ext.os.is.Android) {
+            this.insert(0, buttonCancel);
+            return;
+        }
+        this.add(buttonCancel);
+    },
+
     config: {
         cls: 'searchbar',
         layout: 'hbox',
         placeholder: 'Pesquise aqui...',
         items:[{
-            xtype: 'button',
-            hidden: true,
-            ui: 'plain',
-            iconCls: 'ion-md-arrow-back',
-            cls: 'cancel-search-android',
-            itemId: Ext.os.is.Android ? 'cancelSearch' : 'cancelSearchAndroid',
-            handler: function() {
-                var search = this.parent.down('#searchBarField');
-                search.setValue(null);
-                search.blur();
-                this.hide();
-                search.removeCls('search-focused');
-                search.fireEvent('cancel');
-            }
-        }, {
             xtype: 'searchfield',
-            itemId: 'searchBarField'//,
-            // listeners: {
-            //     focus: function() {
-            //         this.parent.down('#cancelSearch').show();
-            //         if (this.getCls().indexOf('search-focused') === -1) {
-            //             this.addCls('search-focused');
-            //         }
-            //     }
-            // }
-        }, {
-            xtype: 'button',
-            hidden: true,
-            ui: 'plain',
-            text: 'Cancelar',
-            cls: 'cancel-search',
-            itemId: !Ext.os.is.Android ? 'cancelSearch' : 'cancelSearchAndroid',
-            handler: function() {
-                var search = this.parent.down('#searchBarField');
-                search.setValue(null);
-                search.blur();
-                this.hide();
-                search.removeCls('search-focused');
-                search.fireEvent('cancel');
-            }
+            itemId: 'searchBarField'
         }],
         listeners: {
             painted: function() {
-                this.down('#cancelSearch').show();
                 if (this.down('#searchBarField').getCls().indexOf('search-focused') === -1) {
                     this.down('#searchBarField').addCls('search-focused');
                 }
