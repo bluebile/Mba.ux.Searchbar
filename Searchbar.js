@@ -36,6 +36,7 @@ Ext.define('Mba.ux.Searchbar.Searchbar', {
         layout: 'hbox',
         placeholder: 'Pesquise aqui...',
         items:[{
+            width: Ext.os.is.Android ? '88%' : '',
             xtype: 'searchfield',
             itemId: 'searchBarField'
         }],
