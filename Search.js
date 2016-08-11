@@ -14,12 +14,16 @@ Ext.define('Mba.ux.Searchbar.Search', {
 
     getValue: function() {
         var value = this.callOverridden();
-        value = value.replace(/[âáã]/g, 'a');
-        value = value.replace(/[êé]/g, 'e');
-        value = value.replace(/[îí]/g, 'i');
-        value = value.replace(/[ôóõ]/g, 'o');
-        value = value.replace(/ú/g, 'u');
-        value = value.replace(/ç/g, 'c');
+        if (value) {
+            value = value.toLowerCase();
+            value = value.replace(/[âáã]/g, 'a');
+            value = value.replace(/[êé]/g, 'e');
+            value = value.replace(/[îí]/g, 'i');
+            value = value.replace(/[ôóõ]/g, 'o');
+            value = value.replace(/ú/g, 'u');
+            value = value.replace(/ç/g, 'c');
+            value = value.trim();
+        }
         return value;
     }
 
