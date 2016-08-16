@@ -28,16 +28,43 @@
         font-size: 15px;
     }
 }
+
+.x-ios {
+    .x-field-search {
+        .x-field-input {
+            &:before {
+                content: '\f4a5';
+                font-family: 'Ionicons' !important;
+            }
+        }
+    }
+}
+
+.x-android {
+    .x-field-search {
+        .x-field-input {
+            &:after {
+                content: '\f375';
+                font-family: 'Ionicons' !important;
+                position: absolute;
+                right: 9px;
+                font-size: 22px;
+                top: 3px !important;
+                line-height: 32px;
+            }
+            &:before {
+                content: ' ' !important;
+            }
+        }
+    }
+}
+
 .x-field-search {
     .x-component-outer {
         padding: 6px;
         background: #f3f3f3;
     }
     .x-field-input {
-        &:before {
-            content: '\f4a5';
-            font-family: 'Ionicons' !important;
-        }
         .x-form-field {
             margin-left: 0px;
             padding-left: 30px;
@@ -55,9 +82,6 @@
         }
         .x-field-input {
             padding-right: 0px !important;
-            &:before {
-                content: '\f375' !important;
-            }
         }
     }
     .x-field-input {
