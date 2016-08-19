@@ -18,10 +18,11 @@ Ext.define('Mba.ux.Searchbar.Searchbar', {
             itemId: 'cancelSearch',
             handler: function() {
                 var search = this.parent.down('#searchBarField');
-                search.setValue(null);
-                search.blur();
-                search.removeCls('search-focused');
-                search.fireEvent('cancel');
+                if (search.fireEvent('cancel', this) === true) {
+                    search.setValue(null);
+                    search.blur();
+                    search.removeCls('search-focused');
+                }
             }
         };
         if (Ext.os.is.Android) {
