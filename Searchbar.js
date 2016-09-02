@@ -12,7 +12,7 @@ Ext.define('Mba.ux.Searchbar.Searchbar', {
         var buttonCancel = {
             xtype: 'button',
             ui: 'plain',
-            iconCls: !Ext.os.is.Android ? '' :  'ion-md-arrow-back',
+            iconCls: !Ext.os.is.Android ? '' :  'icon-arrow-back',
             text: !Ext.os.is.Android ? 'Cancelar' : '',
             cls: !Ext.os.is.Android ? 'cancel-search' : 'cancel-search-android',
             itemId: 'cancelSearch',
